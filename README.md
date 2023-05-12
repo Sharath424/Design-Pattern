@@ -54,7 +54,7 @@ Here are the sections that are usually present in a pattern description:
 
 1. **[Creational patterns](#creational-patterns)** provide object creation mechanisms that increase flexibility and reuse of existing code.
 
-2. **[Structural patterns](#structural-patterns)** explain how to assemble objects and classes into larger structures, while keeping these structures flexible and efficient.
+2. **[Structural patterns](#structural-patterns)** explain how to assemble objects and classes into larger structures , while keeping these structures flexible and efficient.
 
 3. **[Behavioral patterns](#behavioral-patterns)** take care of effective communication and the assignment of responsibilities between objects.
 
