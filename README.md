@@ -58,7 +58,7 @@ Here are the sections that are usually present in a pattern description:
 
 3. **[Behavioral patterns](#behavioral-patterns)** take care of effective communication and the assignment of responsibilities between objects.
 
-## Catalog
+## Catalogs
 
 1. Creational Design Pattern
 
