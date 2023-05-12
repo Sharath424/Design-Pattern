@@ -1,6 +1,5 @@
 package thread_safe;
 
-
 public class DemoMultiThread {
     public static void main(String[] args) {
         System.out.println("If you see the same value, then singleton was reused (yay!)" + "\n" +
@@ -10,7 +9,6 @@ public class DemoMultiThread {
         Thread threadBar = new Thread(new ThreadBar());
         threadFoo.start();
         threadBar.start();
-        
     }
 
     static class ThreadFoo implements Runnable {
