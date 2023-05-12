@@ -1,6 +1,5 @@
 package thread_safe;
 
-
 public final class Singleton {
     private static volatile Singleton instance;
 
@@ -11,7 +10,7 @@ public final class Singleton {
     }
 
     public static Singleton getInstance(String value) {
-       Singleton result = instance;
+        Singleton result = instance;
         if (result != null) {
             return result;
         }
