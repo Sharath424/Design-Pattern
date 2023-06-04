@@ -925,5 +925,67 @@ The main object of the player is always linked to a state object that performs m
 
 #### Strategy
 
+Strategy is a behavioral design pattern that turns a set of behaviors into objects and makes them interchangeable inside original context object.
+
+The original object, called context, holds a reference to a strategy object. The context delegates executing the behavior to the linked strategy object. In order to change the way the context performs its work, other objects may replace the currently linked strategy object with another one.
+
+![strategy](images/strategy.png)
+
+##### Code Example
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Strategy/Strategy/src)
+
+
+* Output
+
+![strategy](images/strategy-output.png)
+
+
 #### Template Method
+
+Template Method is a behavioral design pattern that allows you to defines a skeleton of an algorithm in a base class and let subclasses override the steps without changing the overall algorithm’s structure.
+
+![template](images/template.png)
+
+##### Pseudocode
+
+In this example, the Template Method pattern provides a “skeleton” for various branches of artificial intelligence in a simple strategy video game.
+
+
+All races in the game have almost the same types of units and buildings. Therefore you can reuse the same AI structure for various races, while being able to override some of the details. With this approach, you can override the orcs’ AI to make it more aggressive, make humans more defense-oriented, and make monsters unable to build anything. Adding a new race to the game would require creating a new AI subclass and overriding the default methods declared in the base AI class.
+
+![template](images/template-struc.png)
+
+
+##### Code Example
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Template/Template)
+
+* Output
+
+![template](images/template-output.png)
+
+
 #### Visitor
+
+Visitor is a behavioral design pattern that allows adding new behaviors to existing class hierarchy without altering any existing code.
+
+![cisitor](images/visitor.png)
+
+##### Pseudocode
+
+![visitor](images/visitor-structure.png)
+
+##### Code Example
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Visitor/Visitor/src)
+
+* Output
+
+![visitor](images/visitor-output.png)
