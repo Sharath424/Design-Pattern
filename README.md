@@ -682,15 +682,310 @@ Time saved by caching proxy: 4479ms
 
 ### Behavioral Patterns
 #### Chain of Responsibility
+Chain of Responsibility is behavioral design pattern that allows passing request along the chain of potential handlers until one of them handles request.
+
+The pattern allows multiple objects to handle the request without coupling sender class to the concrete classes of the receivers. The chain can be composed dynamically at runtime with any handler that follows a standard handler interface.
+
+![chain-of-responsibity](images/Chai-of-responsibity.png)
 
 
+##### Pseudocode
+
+In this example, the Chain of Responsibility pattern is responsible for displaying contextual help information for active GUI elements.
+
+The application’s GUI is usually structured as an object tree. For example, the Dialog class, which renders the main window of the app, would be the root of the object tree. The dialog contains Panels, which might contain other panels or simple low-level elements like Buttons and TextFields.
+
+A simple component can show brief contextual tooltips, as long as the component has some help text assigned. But more complex components define their own way of showing contextual help, such as showing an excerpt from the manual or opening a page in a browser.
+
+When a user points the mouse cursor at an element and presses the F1 key, the application detects the component under the pointer and sends it a help request. The request bubbles up through all the element’s containers until it reaches the element that’s capable of displaying the help information.
+
+![chain-of-responsibity](images/Chain-of-responsibity-pes.png)
+
+##### Code Example
+
+![chain-of-responsibity](images/chain-of-responsibity-code.png)
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Chain%20of%20Responsibility/Chain_of_Responsibility/src)
+
+* Output
+
+```
+Enter email: admin@example.com
+Input password: admin_pass
+Hello, admin!
+Authorization have been successful!
+
+
+Enter email: wrong@example.com
+Input password: wrong_pass
+This email is not registered!
+Enter email: wrong@example.com
+Input password: wrong_pass
+This email is not registered!
+Enter email: wrong@example.com
+Input password: wrong_pass
+Request limit exceeded!
+
+```
 
 #### Command
+
+Command is behavioral design pattern that converts requests or simple operations into objects.
+
+The conversion allows deferred or remote execution of commands, storing command history, etc.
+
+![Command](images/command.png)
+
+##### Pseudocode
+
+In this example, the Command pattern helps to track the history of executed operations and makes it possible to revert an operation if needed.
+
+Commands which result in changing the state of the editor (e.g., cutting and pasting) make a backup copy of the editor’s state before executing an operation associated with the command. After a command is executed, it’s placed into the command history (a stack of command objects) along with the backup copy of the editor’s state at that point. Later, if the user needs to revert an operation, the app can take the most recent command from the history, read the associated backup of the editor’s state, and restore it.
+
+The client code (GUI elements, command history, etc.) isn’t coupled to concrete command classes because it works with commands via the command interface. This approach lets you introduce new commands into the app without breaking any existing code.
+
+
+##### Output
+
+![command](images/command-code-example.png)
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Command/commands/src)
+
+* output
+
+![command](images/command-output.png)
+
 #### Iterator
+
+
+Iterator is a behavioral design pattern that allows sequential traversal through a complex data structure without exposing its internal details.
+
+Thanks to the Iterator, clients can go over elements of different collections in a similar fashion using a single iterator interface.
+
+![iterator](images/iterator.png)
+
+##### Pseudocode
+
+In this example, the Iterator pattern is used to walk through a special kind of collection which encapsulates access to Facebook’s social graph. The collection provides several iterators that can traverse profiles in various ways.
+
+The ‘friends’ iterator can be used to go over the friends of a given profile. The ‘colleagues’ iterator does the same, except it omits friends who don’t work at the same company as a target person. Both iterators implement a common interface which allows clients to fetch profiles without diving into implementation details such as authentication and sending REST requests.
+
+The client code isn’t coupled to concrete classes because it works with collections and iterators only through interfaces. If you decide to connect your app to a new social network, you simply need to provide new collection and iterator classes without changing the existing code.
+
+##### Code Example
+
+![iterator](images/iterator-code-example.png)
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Iterators/Iterators/src)
+
+* Output
+
+```
+Please specify social network to target spam tool (default:Facebook):
+1. Facebook
+2. LinkedIn
+> 1
+
+Iterating over friends...
+
+Facebook: Loading 'friends' list of 'anna.smith@bing.com' over the network...
+Facebook: Loading profile 'mad_max@ya.com' over the network...
+Sent message to: 'mad_max@ya.com'. Message body: 'Hey! This is Anna's friend Josh. Can you do me a favor and like this post [link]?'
+Facebook: Loading profile 'catwoman@yahoo.com' over the network...
+Sent message to: 'catwoman@yahoo.com'. Message body: 'Hey! This is Anna's friend Josh. Can you do me a favor and like this post [link]?'
+
+Iterating over coworkers...
+
+Facebook: Loading 'coworkers' list of 'anna.smith@bing.com' over the network...
+Facebook: Loading profile 'sam@amazon.com' over the network...
+Sent message to: 'sam@amazon.com'. Message body: 'Hey! This is Anna's boss Jason. Anna told me you would be interested in [link].'
+```
+
 #### Mediator
+
+Mediator is a behavioral design pattern that reduces coupling between components of a program by making them communicate indirectly, through a special mediator object.
+
+The Mediator makes it easy to modify, extend and reuse individual components because they’re no longer dependent on the dozens of other classes.
+
+![Mediator](images/mediator.png)
+
+##### Pseudocode
+
+In this example, the Mediator pattern helps you eliminate mutual dependencies between various UI classes: buttons, checkboxes and text labels.
+
+An element, triggered by a user, doesn’t communicate with other elements directly, even if it looks like it’s supposed to. Instead, the element only needs to let its mediator know about the event, passing any contextual info along with that notification.
+
+In this example, the whole authentication dialog acts as the mediator. It knows how concrete elements are supposed to collaborate and facilitates their indirect communication. Upon receiving a notification about an event, the dialog decides what element should address the event and redirects the call accordingly.
+
+##### Code Example
+
+![mediator](images/mediator-code-example.png)
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Mediator/Mediator/src)
+
+* Output
+
+![mediator](images/mediator-output.png)
+
 #### Memento
+
+Memento is a behavioral design pattern that allows making snapshots of an object’s state and restoring it in future.
+
+The Memento doesn’t compromise the internal structure of the object it works with, as well as data kept inside the snapshots.
+
+![memento](images/memento.png)
+
+##### Pseudocode
+
+This example uses the Memento pattern alongside the Command pattern for storing snapshots of the complex text editor’s state and restoring an earlier state from these snapshots when needed.
+
+The command objects act as caretakers. They fetch the editor’s memento before executing operations related to commands. When a user attempts to undo the most recent command, the editor can use the memento stored in that command to revert itself to the previous state.
+
+The memento class doesn’t declare any public fields, getters or setters. Therefore no object can alter its contents. Mementos are linked to the editor object that created them. This lets a memento restore the linked editor’s state by passing the data via setters on the editor object. Since mementos are linked to specific editor objects, you can make your app support several independent editor windows with a centralized undo stack.
+
+##### Code Example
+
+![memento](images/mediator-code-example.png)
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Mediator/Mediator/src)
+
+* Output
+
+![memento](images/mediator-output.png)
+
 #### Observer
+
+Observer is a behavioral design pattern that allows some objects to notify other objects about changes in their state.
+
+The Observer pattern provides a way to subscribe and unsubscribe to and from these events for any object that implements a subscriber interface.
+
+![observer](images/Observer.png)
+
+##### Pseudocode
+
+In this example, the Observer pattern lets the text editor object notify other service objects about changes in its state.
+
+The list of subscribers is compiled dynamically: objects can start or stop listening to notifications at runtime, depending on the desired behavior of your app.
+
+In this implementation, the editor class doesn’t maintain the subscription list by itself. It delegates this job to the special helper object devoted to just that. You could upgrade that object to serve as a centralized event dispatcher, letting any object act as a publisher.
+
+Adding new subscribers to the program doesn’t require changes to existing publisher classes, as long as they work with all subscribers through the same interface.
+
+
+##### Code Example
+
+![observer](images/observer-code-example.png)
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/observer/Observer/src)
+
+* Output
+
+```
+Save to log \path\to\log\file.txt: Someone has performed open operation with the following file: test.txt
+Email to admin@example.com: Someone has performed save operation with the following file: test.txt
+```
+
 #### State
+
+State is a behavioral design pattern that allows an object to change the behavior when its internal state changes.
+
+The pattern extracts state-related behaviors into separate state classes and forces the original object to delegate the work to an instance of these classes, instead of acting on its own.
+
+![State](images/State.png)
+
+##### Pseudocode
+
+In this example, the State pattern lets the same controls of the media player behave differently, depending on the current playback state.
+
+The main object of the player is always linked to a state object that performs most of the work for the player. Some actions replace the current state object of the player with another, which changes the way the player reacts to user interactions.
+
+##### Code Example
+
+![state](images/State-code-example.png)
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/States/States/src)
+
+* Output
+
+![state](images/State-output.png)
+
 #### Strategy
+
+Strategy is a behavioral design pattern that turns a set of behaviors into objects and makes them interchangeable inside original context object.
+
+The original object, called context, holds a reference to a strategy object. The context delegates executing the behavior to the linked strategy object. In order to change the way the context performs its work, other objects may replace the currently linked strategy object with another one.
+
+![strategy](images/strategy.png)
+
+##### Code Example
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Strategy/Strategy/src)
+
+
+* Output
+
+![strategy](images/strategy-output.png)
+
+
 #### Template Method
+
+Template Method is a behavioral design pattern that allows you to defines a skeleton of an algorithm in a base class and let subclasses override the steps without changing the overall algorithm’s structure.
+
+![template](images/template.png)
+
+##### Pseudocode
+
+In this example, the Template Method pattern provides a “skeleton” for various branches of artificial intelligence in a simple strategy video game.
+
+
+All races in the game have almost the same types of units and buildings. Therefore you can reuse the same AI structure for various races, while being able to override some of the details. With this approach, you can override the orcs’ AI to make it more aggressive, make humans more defense-oriented, and make monsters unable to build anything. Adding a new race to the game would require creating a new AI subclass and overriding the default methods declared in the base AI class.
+
+![template](images/template-struc.png)
+
+
+##### Code Example
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Template/Template)
+
+* Output
+
+![template](images/template-output.png)
+
+
 #### Visitor
+
+Visitor is a behavioral design pattern that allows adding new behaviors to existing class hierarchy without altering any existing code.
+
+![cisitor](images/visitor.png)
+
+##### Pseudocode
+
+![visitor](images/visitor-structure.png)
+
+##### Code Example
+
+* Code
+
+(https://github.com/Sharath424/Design-Pattern/tree/main/Visitor/Visitor/src)
+
+* Output
+
+![visitor](images/visitor-output.png)
