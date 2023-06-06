@@ -1076,3 +1076,22 @@ The Model View Controller (MVC) design pattern specifies that an application con
 
 (https://github.com/Sharath424/Design-Pattern/tree/main/MVC)
 
+#### Advantages and Disadvantages
+
+1. Advantage
+
+* Multiple developers can work simultaneously on the model, controller and views.
+
+* MVC enables logical grouping of related actions on a controller together. The views for a specific model are also grouped together.
+
+* Models can have multiple views.
+
+* The overall components of an application are easily manageable & are less dependent on each other for proper functioning of application.
+
+2. Disadvantage
+
+* The framework navigation can be complex because it introduces new layers of abstraction and requires users to adapt to the decomposition criteria of MVC.
+
+* Knowledge on multiple technologies becomes the norm. Developers using MVC need to be skilled in multiple technologies.
+
+ad
