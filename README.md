@@ -120,15 +120,15 @@ These design patterns are used when a decision must be made at the time of insta
 
 Types of creational design patterns
 
-* Factory Pattern
+* [Factory Pattern](#factory-method)
 
-* Abstract Factory Pattern
+* [Abstract Factory Pattern](#abstract-factory)
 
-* Singleton Pattern
+* [Singleton Pattern](#singleton)
 
-* Prototype Pattern
+* [Prototype Pattern](#prototype)
 
-* Builder Pattern.
+* [Builder Pattern](#builder)
 
 
 #### Factory Method

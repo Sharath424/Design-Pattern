@@ -1,0 +1,11 @@
+package Model;
+
+import Model.controller.Student;
+
+import Model.controller.StudentView;
+
+public class StudentController {
+
+	}
+
+	
