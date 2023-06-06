@@ -1,0 +1,5 @@
+package Model.mvc;
+
+public class Student {
+
+}
