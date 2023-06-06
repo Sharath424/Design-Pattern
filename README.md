@@ -83,8 +83,6 @@ Here are the sections that are usually present in a pattern description:
 
 * [Composite Pattern](#composite)
 
-* [Decorator Pattern](#decorator)
-
 * [Facade Pattern](#facade)
 
 * [Flyweight Pattern](#flyweight)
@@ -1094,4 +1092,48 @@ The Model View Controller (MVC) design pattern specifies that an application con
 
 * Knowledge on multiple technologies becomes the norm. Developers using MVC need to be skilled in multiple technologies.
 
-ad
+### Commit ids
+
+* [Factory Pattern](#factory-method) - cc519bcffb06e89299973277f44292dd0fc8f49e
+
+* [Abstract Factory Pattern](#abstract-factory) - 0f6888f6753001d3df25e8dfe5dda26e1e8e50c9 
+
+* [Singleton Pattern](#singleton) - e8d89f3112db9e0e2658034f04cb553769b7447b
+
+* [Prototype Pattern](#prototype) - b046101daa4a4a2bc7fa6f2ffed69bcf664c092c
+
+* [Builder Pattern](#builder) - c2b9a45df01b57fc4614ee6c17604f28295569ae
+
+* [Adapter Pattern](#adapter) - 23159d6ddbc54886711681e174179355e77866d1
+
+* [Bridge Pattern](#bridge) - 773d1624d63e58d88846df57c5ce4e48ea86c52e
+
+* [Composite Pattern](#composite) - 27702d2e9841f6773898cb87f1a0d724c75b324d
+
+* [Facade Pattern](#facade) - d0c947484ba24844ae927072a283449e9d9a99da
+
+* [Flyweight Pattern](#flyweight) - da730801be663b7551636a207d5df2bda6164d3d
+
+* [Proxy Pattern](#proxy) - 667f32e94e05282df3fa5b1081db5b94dfac140d
+
+* [Chain Of Responsibility Pattern](#chain-of-responsibility) -ed531d99c2cf19fbda7990efedd4d9c1c98a5f44
+
+* [Command Pattern](#command) - dc3a8bbb3e07eeaa731a91b80a58181e730241fa
+
+* [Iterator Pattern](#iterator) - 055fe4e630c424f30acd24c7514fa06b29677f33
+
+* [Mediator Pattern](#mediator) - 5e8d457ab01d6d12260f4556ec01a3f43570bac6
+
+* [Memento Pattern](#memento)- ba22ccbf0119f7fd84427db75fdd421757862de4
+
+* [Observer Pattern](#observer)- 24386b818f0ac125c1b959e6f8760edf8aaa6a2b
+
+* [State Pattern](#state) - 8f69e99108abf4866c162f9df209bcb9c52802b0
+
+* [Strategy Pattern](#strategy) - 40736b38e60ee79e702368e33bf60794af2b189e
+
+* [Template Pattern](#template-method)- 34dad4e6709b07bb76ae2c099fb32b7efe394c9f
+
+* [visitor](#visitor)- 444b3446d4ae7f89ee617f093ee150aa126caa4c
+
+* [MVC](#mvc) - 250be2c61af19d41590c1c304c1172c9118f7188
