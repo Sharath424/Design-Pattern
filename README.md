@@ -1069,6 +1069,28 @@ Email to admin@example.com: Someone has performed save operation with the follow
 
 ![visitor](images/visitor-output.png)
 
+### Publish/Subscribe pattern
+
+* The Publish/Subscribe pattern, sometimes known as pub/sub, is an architectural design pattern that enables publishers and subscribers to communicate with one another. 
+
+* In this arrangement, the publisher and subscriber rely on a message broker to send messages from the publisher to the subscribers. Messages (events) are sent out by the host (publisher) to a channel, which subscribers can join.
+
+
+* To better understand how this works, let's consider an example of a social network for sharing recipes.
+
+* In this network, users can share their own recipes and follow the recipes of other users. When sharing a recipe, the user can categorize it by topic, such as meal or ingredient seasonality. When a user follows another user, they are subscribing to the recipes that the friend publishes.
+
+* Subscribers, or followers, have the option to view all of the recipes published by the user they are following or only those that match their interests. They can also create filters to exclude certain types of recipes, such as those containing certain ingredients.
+
+* Users can follow as many other users as they like, so their timeline will be filled with recipes from a variety of sources. However, each recipe is only published once, by the original user.
+
+* H﻿ere Event Bus is responsible for routing messages to the appropriate subscribers. It does this by keeping track of which subjects each subscriber is subscribed to.
+
+* Publishers decide what topics their messages will belong to, and the Event Bus filters the messages by topic before delivering them to the relevant subscribers. For example, if a publisher sends a message with Topic A, it will be forwarded to any subscribers who have subscribed to Topic A. Similarly, a message with Topic B will be delivered to subscribers of Topic B.
+
+
+![publisher-subcriber](images/publishers-sub.png)
+
 
 ### Three-tier Architecture
 
@@ -1111,6 +1133,8 @@ Tier before passing to Database Tier.
 * Complexity also increases with the increase in tiers in architecture.
 
 * There is an increase in the number of resources as codebase, presentation code, and application code need to be maintained separately.
+
+
 
 ### MVC
 
