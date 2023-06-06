@@ -114,6 +114,22 @@ Here are the sections that are usually present in a pattern description:
 
 ### Creational Patterns
 
+Creational design patterns are concerned with the way of creating objects.
+
+These design patterns are used when a decision must be made at the time of instantiation of a class (i.e. creating an object of a class)
+
+Types of creational design patterns
+
+* Factory Pattern
+
+* Abstract Factory Pattern
+
+* Singleton Pattern
+
+* Prototype Pattern
+
+* Builder Pattern.
+
 
 #### Factory Method
 
@@ -338,6 +354,29 @@ BAR
 BAR
 ```
 ### Structural Patterns
+
+Structural design patterns are concerned with how classes and objects can be composed, to form larger structures.
+
+The structural design patterns simplifies the structure by identifying the relationships.
+
+These patterns focus on, how the classes inherit from each other and how they are composed from other classes.
+
+
+Types of structural design patterns
+
+* [Adapter](#adapter) Pattern Adapting an interface into another according to client expectation.
+
+* [Bridge Pattern](#bridge) Separating abstraction (interface) from implementation.
+
+* [Composite Pattern](#composite) Allowing clients to operate on hierarchy of objects.
+
+* [Facade Pattern](#facade) Providing an interface to a set of interfaces.
+
+* [Flyweight Pattern](#flyweight) Reusing an object by sharing it.
+
+* [proxy Pattern](#proxy) Representing another object.
+
+
 #### Adapter
 Adapter is a structural design pattern, which allows incompatible objects to collaborate.
 
@@ -458,7 +497,6 @@ The client code works with all shapes through the single interface common to all
 ![Composite](images/Composite-output.png)
 
 
-#### Decorator
 #### Facade
 
 Facade is a structural design pattern that provides a simplified (but limited) interface to a complex system of classes, library or framework.
@@ -681,6 +719,36 @@ Time saved by caching proxy: 4479ms
 
 
 ### Behavioral Patterns
+
+Behavioral design patterns are concerned with the interaction and responsibility of objects.
+
+In these design patterns, the interaction between the objects should be in such a way that they can easily talk to each other and still should be loosely coupled.
+
+That means the implementation and the client should be loosely coupled in order to avoid hard coding and dependencies.
+
+
+There are 10 types of behavioral design patterns:
+
+* [Chain of Responsibility Pattern](#chain-of-responsibility)
+
+* [Command Pattern](#command)
+
+* [Iterator Pattern](#iterator)
+
+* [Mediator Pattern](#mediator)
+
+* [Memento Pattern](#memento)
+
+* [Observer Pattern](#observer)
+
+* [State Pattern](#state)
+
+* [Strategy Pattern](#strategy)
+
+* [Template Pattern](#template-method)
+
+* [visitor](#visitor)
+
 #### Chain of Responsibility
 Chain of Responsibility is behavioral design pattern that allows passing request along the chain of potential handlers until one of them handles request.
 
