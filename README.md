@@ -1070,6 +1070,48 @@ Email to admin@example.com: Someone has performed save operation with the follow
 ![visitor](images/visitor-output.png)
 
 
+### Three-tier Architecture
+
+In this architecture, the entire application is organized into three computing tiers
+
+* Presentation tier
+
+* Application tier
+
+* Data-tier
+
+**Presentation Tier** - Its purpose is to take request from the client and displays information to the client. It communicates with other tiers using a web browser as it gives output on the browser. If we talk about Web-based tiers then these are developed using languages like- HTML, CSS, JavaScript.
+
+**Application tier** -  It is the middle tier of the architecture also known as the logic tier as the information/request gathered through the presentation tier is processed in detail here. It also interacts with the server that stores the data. It processes the client’s request, formats, it and sends it back to the client. It is developed using languages like- Python, Java, PHP, etc.
+
+**Data-tier** - It is the last tier of the architecture also known as the Database Tier. It is used to store the processed information so that it can be retrieved later on when required. It consists of Database Servers like- Oracle, MySQL, DB2, etc. 
+
+
+![visitor](images/three-tier-architecture.png)
+
+
+#### Advantage and Disadvantage
+
+1. Advantage
+
+* Programmers can easily maintain the database, presentation code, and business/application logic separately. If any change is required in business/application logic then it does not impact the presentation code and codebase.
+
+* Load is balanced as the presentation tier task is separated from the server of the data tier.
+
+* Security is improved as the client cannot communicate directly with Database Tier. Moreover, the data is validated at Application 
+Tier before passing to Database Tier.
+
+* The integrity of data is maintained
+
+
+2. Disadvantage
+
+* The Presentation Tier cannot communicate directly with Database Tier.
+
+* Complexity also increases with the increase in tiers in architecture.
+
+* There is an increase in the number of resources as codebase, presentation code, and application code need to be maintained separately.
+
 ### MVC
 
 The Model View Controller (MVC) design pattern specifies that an application consist of a data model, presentation information, and control information. The pattern requires that each of these be separated into different objects. MVC is more of an architectural pattern, but not for complete application. MVC mostly relates to the UI / interaction layer of an application. You’re still going to need business logic layer, maybe some service layer and data access layer. 
@@ -1104,6 +1146,8 @@ The Model View Controller (MVC) design pattern specifies that an application con
 * The framework navigation can be complex because it introduces new layers of abstraction and requires users to adapt to the decomposition criteria of MVC.
 
 * Knowledge on multiple technologies becomes the norm. Developers using MVC need to be skilled in multiple technologies.
+
+
 
 ### Commit ids
 
