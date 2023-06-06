@@ -112,9 +112,9 @@ Here are the sections that are usually present in a pattern description:
 
 ### Creational Patterns
 
-Creational design patterns are concerned with the way of creating objects.
+* Creational design patterns are concerned with the way of creating objects.
 
-These design patterns are used when a decision must be made at the time of instantiation of a class (i.e. creating an object of a class)
+* These design patterns are used when a decision must be made at the time of instantiation of a class (i.e. creating an object of a class)
 
 Types of creational design patterns
 
@@ -133,19 +133,20 @@ Types of creational design patterns
 
 ![Factory](images/Factory.png)
 
-Factory method is a creational design pattern which solves the problem of creating product objects without specifying their concrete classes.
+* Factory method is a creational design pattern which solves the problem of creating product objects without specifying their concrete classes.
 
-The Factory Method defines a method, which should be used for creating objects instead of using a direct constructor call (new operator). Subclasses can override this method to change the class of objects that will be created.
+* The Factory Method defines a method, which should be used for creating objects instead of using a direct constructor call (new operator). Subclasses can override this method to change the class of objects that will be created.
 
 ##### Pseudocode
 
-The base Dialog class uses different UI elements to render its window. Under various operating systems, these elements may look a little bit different, but they should still behave consistently. A button in Windows is still a button in Linux.
+* The base Dialog class uses different UI elements to render its window. Under various operating systems, these elements may look a little bit different, but they should still behave consistently. A button in Windows is still a button in Linux.
 
-When the factory method comes into play, you don’t need to rewrite the logic of the Dialog class for each operating system. If we declare a factory method that produces buttons inside the base Dialog class, we can later create a subclass that returns Windows-styled buttons from the factory method. The subclass then inherits most of the code from the base class, but, thanks to the factory method, can render Windows-looking buttons on the screen.
+* When the factory method comes into play, you don’t need to rewrite the logic of the Dialog class for each operating system. If we declare a factory method that produces buttons inside the base Dialog class, we can later create a subclass that returns Windows-styled buttons from the factory method.
 
-For this pattern to work, the base Dialog class must work with abstract buttons: a base class or an interface that all concrete buttons follow. This way the code within Dialog remains functional, whichever type of buttons it works with.
+* The subclass then inherits most of the code from the base class, but, thanks to the factory method, can render Windows-looking buttons on the screen.
 
-Of course, you can apply this approach to other UI elements as well. However, with each new factory method you add to the Dialog, you get closer to the Abstract Factory pattern. Fear not, we’ll talk about this pattern later.
+* For this pattern to work, the base Dialog class must work with abstract buttons: a base class or an interface that all concrete buttons follow. This way the code within Dialog remains functional, whichever type of buttons it works with.
+
 
 ##### Code Example
 
@@ -171,28 +172,28 @@ Click! Button says - 'Hello World!
 
 ![Abstract](images/Abstract-factory.png)
 
-Abstract Factory is a creational design pattern, which solves the problem of creating entire product families without specifying their concrete classes.
+* Abstract Factory is a creational design pattern, which solves the problem of creating entire product families without specifying their concrete classes.
 
 
-Abstract Factory defines an interface for creating all distinct products but leaves the actual product creation to concrete factory classes. Each factory type corresponds to a certain product variety.
+* Abstract Factory defines an interface for creating all distinct products but leaves the actual product creation to concrete factory classes. Each factory type corresponds to a certain product variety.
 
-The client code calls the creation methods of a factory object instead of creating products directly with a constructor call (new operator). Since a factory corresponds to a single product variant, all its products will be compatible.
+* The client code calls the creation methods of a factory object instead of creating products directly with a constructor call (new operator). Since a factory corresponds to a single product variant, all its products will be compatible.
 
-Client code works with factories and products only through their abstract interfaces. This lets the client code work with any product variants, created by the factory object. You just create a new concrete factory class and pass it to the client code.
+* Client code works with factories and products only through their abstract interfaces. This lets the client code work with any product variants, created by the factory object. You just create a new concrete factory class and pass it to the client code.
 
 #####  Pseudocode
 
-This example illustrates how the Abstract Factory pattern can be used for creating cross-platform UI elements without coupling the client code to concrete UI classes, while keeping all created elements consistent with a selected operating system.
+* This example illustrates how the Abstract Factory pattern can be used for creating cross-platform UI elements without coupling the client code to concrete UI classes, while keeping all created elements consistent with a selected operating system.
 
-The same UI elements in a cross-platform application are expected to behave similarly, but look a little bit different under different operating systems. Moreover, it’s your job to make sure that the UI elements match the style of the current operating system. You wouldn’t want your program to render macOS controls when it’s executed in Windows.
+* The same UI elements in a cross-platform application are expected to behave similarly, but look a little bit different under different operating systems. Moreover, it’s your job to make sure that the UI elements match the style of the current operating system. You wouldn’t want your program to render macOS controls when it’s executed in Windows.
 
-The Abstract Factory interface declares a set of creation methods that the client code can use to produce different types of UI elements. Concrete factories correspond to specific operating systems and create the UI elements that match that particular OS.
+* The Abstract Factory interface declares a set of creation methods that the client code can use to produce different types of UI elements. Concrete factories correspond to specific operating systems and create the UI elements that match that particular OS.
 
-It works like this: when an application launches, it checks the type of the current operating system. The app uses this information to create a factory object from a class that matches the operating system. The rest of the code uses this factory to create UI elements. This prevents the wrong elements from being created.
+* It works like this: when an application launches, it checks the type of the current operating system. The app uses this information to create a factory object from a class that matches the operating system. The rest of the code uses this factory to create UI elements. This prevents the wrong elements from being created.
 
-With this approach, the client code doesn’t depend on concrete classes of factories and UI elements as long as it works with these objects via their abstract interfaces. This also lets the client code support other factories or UI elements that you might add in the future.
+* With this approach, the client code doesn’t depend on concrete classes of factories and UI elements as long as it works with these objects via their abstract interfaces. This also lets the client code support other factories or UI elements that you might add in the future.
 
-As a result, you don’t need to modify the client code each time you add a new variation of UI elements to your app. You just have to create a new factory class that produces these elements and slightly modify the app’s initialization code so it selects that class when appropriate.
+* As a result, you don’t need to modify the client code each time you add a new variation of UI elements to your app. You just have to create a new factory class that produces these elements and slightly modify the app’s initialization code so it selects that class when appropriate.
 
 ##### Code Example
 
@@ -217,22 +218,24 @@ You created WindowsCheckbox.
 ![Builder](images/Builder.png)
 
 
-Builder is a creational design pattern, which allows constructing complex objects step by step.
+* Builder is a creational design pattern, which allows constructing complex objects step by step.
 
-Unlike other creational patterns, Builder doesn’t require products to have a common interface. That makes it possible to produce different products using the same construction process.
+* Unlike other creational patterns, Builder doesn’t require products to have a common interface. That makes it possible to produce different products using the same construction process.
 
 
 ##### Pseudocode
 
-This example of the Builder pattern illustrates how you can reuse the same object construction code when building different types of products, such as cars, and create the corresponding manuals for them.
+* This example of the Builder pattern illustrates how you can reuse the same object construction code when building different types of products, such as cars, and create the corresponding manuals for them.
 
-A car is a complex object that can be constructed in a hundred different ways. Instead of bloating the Car class with a huge constructor, we extracted the car assembly code into a separate car builder class. This class has a set of methods for configuring various parts of a car.
+* A car is a complex object that can be constructed in a hundred different ways. Instead of bloating the Car class with a huge constructor, we extracted the car assembly code into a separate car builder class. This class has a set of methods for configuring various parts of a car.
 
-If the client code needs to assemble a special, fine-tuned model of a car, it can work with the builder directly. On the other hand, the client can delegate the assembly to the director class, which knows how to use a builder to construct several of the most popular models of cars.
+* If the client code needs to assemble a special, fine-tuned model of a car, it can work with the builder directly. On the other hand, the client can delegate the assembly to the director class, which knows how to use a builder to construct several of the most popular models of cars.
 
-You might be shocked, but every car needs a manual (seriously, who reads them?). The manual describes every feature of the car, so the details in the manuals vary across the different models. That’s why it makes sense to reuse an existing construction process for both real cars and their respective manuals. Of course, building a manual isn’t the same as building a car, and that’s why we must provide another builder class that specializes in composing manuals. This class implements the same building methods as its car-building sibling, but instead of crafting car parts, it describes them. By passing these builders to the same director object, we can construct either a car or a manual.
+* You might be shocked, but every car needs a manual (seriously, who reads them). The manual describes every feature of the car, so the details in the manuals vary across the different models. That’s why it makes sense to reuse an existing construction process for both real cars and their respective manuals. Of course, building a manual isn’t the same as building a car, and that’s why we must provide another builder class that specializes in composing manuals.
 
-The final part is fetching the resulting object. A metal car and a paper manual, although related, are still very different things. We can’t place a method for fetching results in the director without coupling the director to concrete product classes. Hence, we obtain the result of the construction from the builder which performed the job.
+* This class implements the same building methods as its car-building sibling, but instead of crafting car parts, it describes them. By passing these builders to the same director object, we can construct either a car or a manual.
+
+* The final part is fetching the resulting object. A metal car and a paper manual, although related, are still very different things. We can’t place a method for fetching results in the director without coupling the director to concrete product classes. Hence, we obtain the result of the construction from the builder which performed the job.
 
 
 ##### Code Example
@@ -261,17 +264,17 @@ GPS Navigator: Functional
 
 #### Prototype
 
-Prototype is a creational design pattern that allows cloning objects, even complex ones, without coupling to their specific classes.
+* Prototype is a creational design pattern that allows cloning objects, even complex ones, without coupling to their specific classes.
 
-All prototype classes should have a common interface that makes it possible to copy objects even if their concrete classes are unknown. Prototype objects can produce full copies since objects of the same class can access each other’s private fields.
+* All prototype classes should have a common interface that makes it possible to copy objects even if their concrete classes are unknown. Prototype objects can produce full copies since objects of the same class can access each other’s private fields.
 
 ![Prototype](images/Prototype.png)
 
 ##### Pseudocode
 
-In this example, the Prototype pattern lets you produce exact copies of geometric objects, without coupling the code to their classes.
+* In this example, the Prototype pattern lets you produce exact copies of geometric objects, without coupling the code to their classes.
 
-All shape classes follow the same interface, which provides a cloning method. A subclass may call the parent’s cloning method before copying its own field values to the resulting object.
+* All shape classes follow the same interface, which provides a cloning method. A subclass may call the parent’s cloning method before copying its own field values to the resulting object.
 
 ##### Code Example
 
@@ -302,11 +305,11 @@ And they are identical (yay!)
 
 #### Singleton
 
-Singleton is a creational design pattern, which ensures that only one object of its kind exists and provides a single point of access to it for any other code.
+* Singleton is a creational design pattern, which ensures that only one object of its kind exists and provides a single point of access to it for any other code.
 
-Singleton has almost the same pros and cons as global variables. Although they’re super-handy, they break the modularity of your code.
+* Singleton has almost the same pros and cons as global variables. Although they’re super-handy, they break the modularity of your code.
 
-You can’t just use a class that depends on a Singleton in some other context, without carrying over the Singleton to the other context. Most of the time, this limitation comes up during the creation of unit tests.
+* You can’t just use a class that depends on a Singleton in some other context, without carrying over the Singleton to the other context. Most of the time, this limitation comes up during the creation of unit tests.
 
 ![Singleton](images/Singleton.png)
 
@@ -353,11 +356,11 @@ BAR
 ```
 ### Structural Patterns
 
-Structural design patterns are concerned with how classes and objects can be composed, to form larger structures.
+* Structural design patterns are concerned with how classes and objects can be composed, to form larger structures.
 
-The structural design patterns simplifies the structure by identifying the relationships.
+* The structural design patterns simplifies the structure by identifying the relationships.
 
-These patterns focus on, how the classes inherit from each other and how they are composed from other classes.
+* These patterns focus on, how the classes inherit from each other and how they are composed from other classes.
 
 
 Types of structural design patterns
@@ -376,9 +379,10 @@ Types of structural design patterns
 
 
 #### Adapter
-Adapter is a structural design pattern, which allows incompatible objects to collaborate.
 
-The Adapter acts as a wrapper between two objects. It catches calls for one object and transforms them to format and interface recognizable by the second object.
+* Adapter is a structural design pattern, which allows incompatible objects to collaborate.
+
+* The Adapter acts as a wrapper between two objects. It catches calls for one object and transforms them to format and interface recognizable by the second object.
 
 ![Adapter](images/Adapter.png)
 
@@ -401,21 +405,21 @@ Square peg w20 does not fit into round hole r5.
 
 #### Bridge
 
-Bridge is a structural design pattern that divides business logic or huge class into separate class hierarchies that can be developed independently.
+* Bridge is a structural design pattern that divides business logic or huge class into separate class hierarchies that can be developed independently.
 
-One of these hierarchies (often called the Abstraction) will get a reference to an object of the second hierarchy (Implementation). The abstraction will be able to delegate some (sometimes, most) of its calls to the implementations object. Since all implementations will have a common interface, they’d be interchangeable inside the abstraction.
+* One of these hierarchies (often called the Abstraction) will get a reference to an object of the second hierarchy (Implementation). The abstraction will be able to delegate some (sometimes, most) of its calls to the implementations object. Since all implementations will have a common interface, they’d be interchangeable inside the abstraction.
 
 ![Bridge](images/Bridge.png)
 
 ##### Pseudocode
 
-This example illustrates how the Bridge pattern can help divide the monolithic code of an app that manages devices and their remote controls. The Device classes act as the implementation, whereas the Remotes act as the abstraction.
+* This example illustrates how the Bridge pattern can help divide the monolithic code of an app that manages devices and their remote controls. The Device classes act as the implementation, whereas the Remotes act as the abstraction.
 
-The base remote control class declares a reference field that links it with a device object. All remotes work with the devices via the general device interface, which lets the same remote support multiple device types.
+* The base remote control class declares a reference field that links it with a device object. All remotes work with the devices via the general device interface, which lets the same remote support multiple device types.
 
-You can develop the remote control classes independently from the device classes. All that’s needed is to create a new remote subclass. For example, a basic remote control might only have two buttons, but you could extend it with additional features, such as an extra battery or a touchscreen.
+* You can develop the remote control classes independently from the device classes. All that’s needed is to create a new remote subclass. For example, a basic remote control might only have two buttons, but you could extend it with additional features, such as an extra battery or a touchscreen.
 
-The client code links the desired type of remote control with a specific device object via the remote’s constructor.
+* The client code links the desired type of remote control with a specific device object via the remote’s constructor.
 
 ##### Code Example
 
@@ -469,22 +473,24 @@ Remote: mute
 
 #### Composite
 
-Composite is a structural design pattern that allows composing objects into a tree-like structure and work with the it as if it was a singular object.
+* Composite is a structural design pattern that allows composing objects into a tree-like structure and work with the it as if it was a singular object.
 
-Composite became a pretty popular solution for the most problems that require building a tree structure. Composite’s great feature is the ability to run methods recursively over the whole tree structure and sum up the results.
+* Composite became a pretty popular solution for the most problems that require building a tree structure. Composite’s great feature is the ability to run methods recursively over the whole tree structure and sum up the results.
 
 ![Composite](images/Composite.png)
 
 ##### Pseudocode
 
 
-The CompoundGraphic class is a container that can comprise any number of sub-shapes, including other compound shapes. A compound shape has the same methods as a simple shape. However, instead of doing something on its own, a compound shape passes the request recursively to all its children and “sums up” the result.
+* The CompoundGraphic class is a container that can comprise any number of sub-shapes, including other compound shapes. A compound shape has the same methods as a simple shape. However, instead of doing something on its own, a compound shape passes the request recursively to all its children and “sums up” the result.
 
-The client code works with all shapes through the single interface common to all shape classes. Thus, the client doesn’t know whether it’s working with a simple shape or a compound one. The client can work with very complex object structures without being coupled to concrete classes that form that structure.
+* The client code works with all shapes through the single interface common to all shape classes. Thus, the client doesn’t know whether it’s working with a simple shape or a compound one. The client can work with very complex object structures without being coupled to concrete classes that form that structure.
 
-##### Code Example
 
 ![Composite](images/Composite-code-example.png)
+
+
+##### Code Example
 
 * Code
 
@@ -497,17 +503,19 @@ The client code works with all shapes through the single interface common to all
 
 #### Facade
 
-Facade is a structural design pattern that provides a simplified (but limited) interface to a complex system of classes, library or framework.
+* Facade is a structural design pattern that provides a simplified (but limited) interface to a complex system of classes, library or framework.
 
-While Facade decreases the overall complexity of the application, it also helps to move unwanted dependencies to one place.
+* While Facade decreases the overall complexity of the application, it also helps to move unwanted dependencies to one place.
 
 ![Facade](images/Facade.png)
 
 ##### Pseudocode
 
-In this example, the Facade pattern simplifies interaction with a complex video conversion framework.
+* In this example, the Facade pattern simplifies interaction with a complex video conversion framework.
 
-Instead of making your code work with dozens of the framework classes directly, you create a facade class which encapsulates that functionality and hides it from the rest of the code. This structure also helps you to minimize the effort of upgrading to future versions of the framework or replacing it with another one. The only thing you’d need to change in your app would be the implementation of the facade’s methods.
+* Instead of making your code work with dozens of the framework classes directly, you create a facade class which encapsulates that functionality and hides it from the rest of the code. 
+
+* This structure also helps you to minimize the effort of upgrading to future versions of the framework or replacing it with another one. The only thing you’d need to change in your app would be the implementation of the facade’s methods.
 
 ##### Code Example
 
@@ -530,19 +538,21 @@ VideoConversionFacade: conversion completed.
 ```
 #### Flyweight
 
-Flyweight is a structural design pattern that allows programs to support vast quantities of objects by keeping their memory consumption low.
+* Flyweight is a structural design pattern that allows programs to support vast quantities of objects by keeping their memory consumption low.
 
-The pattern achieves it by sharing parts of object state between multiple objects. In other words, the Flyweight saves RAM by caching the same data used by different objects.
+* The pattern achieves it by sharing parts of object state between multiple objects. In other words, the Flyweight saves RAM by caching the same data used by different objects.
 
 ![flyweight](images/flyweight.png)
 
 ##### Pseudocode
 
-In this example, the Flyweight pattern helps to reduce memory usage when rendering millions of tree objects on a canvas.
+* In this example, the Flyweight pattern helps to reduce memory usage when rendering millions of tree objects on a canvas.
 
-The pattern extracts the repeating intrinsic state from a main Tree class and moves it into the flyweight class TreeType.
+* The pattern extracts the repeating intrinsic state from a main Tree class and moves it into the flyweight class TreeType.
 
-Now instead of storing the same data in multiple objects, it’s kept in just a few flyweight objects and linked to appropriate Tree objects which act as contexts. The client code creates new tree objects using the flyweight factory, which encapsulates the complexity of searching for the right object and reusing it if needed.
+* Now instead of storing the same data in multiple objects, it’s kept in just a few flyweight objects and linked to appropriate Tree objects which act as contexts. 
+
+* The client code creates new tree objects using the flyweight factory, which encapsulates the complexity of searching for the right object and reusing it if needed.
 
 ##### Code Example
 
@@ -558,19 +568,19 @@ Now instead of storing the same data in multiple objects, it’s kept in just a 
 
 #### Proxy
 
-Proxy is a structural design pattern that provides an object that acts as a substitute for a real service object used by a client. A proxy receives client requests, does some work (access control, caching, etc.) and then passes the request to a service object.
+* Proxy is a structural design pattern that provides an object that acts as a substitute for a real service object used by a client. A proxy receives client requests, does some work (access control, caching, etc.) and then passes the request to a service object.
 
-The proxy object has the same interface as a service, which makes it interchangeable with a real object when passed to a client.
+* The proxy object has the same interface as a service, which makes it interchangeable with a real object when passed to a client.
 
 ![proxy](images/proxy.png)
 
 ##### Pseudocode
 
-This example illustrates how the Proxy pattern can help to introduce lazy initialization and caching to a 3rd-party YouTube integration library.
+* This example illustrates how the Proxy pattern can help to introduce lazy initialization and caching to a 3rd-party YouTube integration library.
 
-The library provides us with the video downloading class. However, it’s very inefficient. If the client application requests the same video multiple times, the library just downloads it over and over, instead of caching and reusing the first downloaded file.
+* The library provides us with the video downloading class. However, it’s very inefficient. If the client application requests the same video multiple times, the library just downloads it over and over, instead of caching and reusing the first downloaded file.
 
-The proxy class implements the same interface as the original downloader and delegates it all the work. However, it keeps track of the downloaded files and returns the cached result when the app requests the same video multiple times.
+* The proxy class implements the same interface as the original downloader and delegates it all the work. However, it keeps track of the downloaded files and returns the cached result when the app requests the same video multiple times.
 
 ##### Code Example
 
@@ -718,11 +728,11 @@ Time saved by caching proxy: 4479ms
 
 ### Behavioral Patterns
 
-Behavioral design patterns are concerned with the interaction and responsibility of objects.
+* Behavioral design patterns are concerned with the interaction and responsibility of objects.
 
-In these design patterns, the interaction between the objects should be in such a way that they can easily talk to each other and still should be loosely coupled.
+* In these design patterns, the interaction between the objects should be in such a way that they can easily talk to each other and still should be loosely coupled.
 
-That means the implementation and the client should be loosely coupled in order to avoid hard coding and dependencies.
+* That means the implementation and the client should be loosely coupled in order to avoid hard coding and dependencies.
 
 
 There are 10 types of behavioral design patterns:
@@ -748,22 +758,23 @@ There are 10 types of behavioral design patterns:
 * [visitor](#visitor)
 
 #### Chain of Responsibility
-Chain of Responsibility is behavioral design pattern that allows passing request along the chain of potential handlers until one of them handles request.
 
-The pattern allows multiple objects to handle the request without coupling sender class to the concrete classes of the receivers. The chain can be composed dynamically at runtime with any handler that follows a standard handler interface.
+* Chain of Responsibility is behavioral design pattern that allows passing request along the chain of potential handlers until one of them handles request.
+
+* The pattern allows multiple objects to handle the request without coupling sender class to the concrete classes of the receivers. The chain can be composed dynamically at runtime with any handler that follows a standard handler interface.
 
 ![chain-of-responsibity](images/Chai-of-responsibity.png)
 
 
 ##### Pseudocode
 
-In this example, the Chain of Responsibility pattern is responsible for displaying contextual help information for active GUI elements.
+* In this example, the Chain of Responsibility pattern is responsible for displaying contextual help information for active GUI elements.
 
-The application’s GUI is usually structured as an object tree. For example, the Dialog class, which renders the main window of the app, would be the root of the object tree. The dialog contains Panels, which might contain other panels or simple low-level elements like Buttons and TextFields.
+* The application’s GUI is usually structured as an object tree. For example, the Dialog class, which renders the main window of the app, would be the root of the object tree. The dialog contains Panels, which might contain other panels or simple low-level elements like Buttons and TextFields.
 
-A simple component can show brief contextual tooltips, as long as the component has some help text assigned. But more complex components define their own way of showing contextual help, such as showing an excerpt from the manual or opening a page in a browser.
+* A simple component can show brief contextual tooltips, as long as the component has some help text assigned. But more complex components define their own way of showing contextual help, such as showing an excerpt from the manual or opening a page in a browser.
 
-When a user points the mouse cursor at an element and presses the F1 key, the application detects the component under the pointer and sends it a help request. The request bubbles up through all the element’s containers until it reaches the element that’s capable of displaying the help information.
+* When a user points the mouse cursor at an element and presses the F1 key, the application detects the component under the pointer and sends it a help request. The request bubbles up through all the element’s containers until it reaches the element that’s capable of displaying the help information.
 
 ![chain-of-responsibity](images/Chain-of-responsibity-pes.png)
 
@@ -798,19 +809,19 @@ Request limit exceeded!
 
 #### Command
 
-Command is behavioral design pattern that converts requests or simple operations into objects.
+* Command is behavioral design pattern that converts requests or simple operations into objects.
 
-The conversion allows deferred or remote execution of commands, storing command history, etc.
+* The conversion allows deferred or remote execution of commands, storing command history, etc.
 
 ![Command](images/command.png)
 
 ##### Pseudocode
 
-In this example, the Command pattern helps to track the history of executed operations and makes it possible to revert an operation if needed.
+* In this example, the Command pattern helps to track the history of executed operations and makes it possible to revert an operation if needed.
 
-Commands which result in changing the state of the editor (e.g., cutting and pasting) make a backup copy of the editor’s state before executing an operation associated with the command. After a command is executed, it’s placed into the command history (a stack of command objects) along with the backup copy of the editor’s state at that point. Later, if the user needs to revert an operation, the app can take the most recent command from the history, read the associated backup of the editor’s state, and restore it.
+* Commands which result in changing the state of the editor (e.g., cutting and pasting) make a backup copy of the editor’s state before executing an operation associated with the command. After a command is executed, it’s placed into the command history (a stack of command objects) along with the backup copy of the editor’s state at that point. Later, if the user needs to revert an operation, the app can take the most recent command from the history, read the associated backup of the editor’s state, and restore it.
 
-The client code (GUI elements, command history, etc.) isn’t coupled to concrete command classes because it works with commands via the command interface. This approach lets you introduce new commands into the app without breaking any existing code.
+* The client code (GUI elements, command history, etc.) isn’t coupled to concrete command classes because it works with commands via the command interface. This approach lets you introduce new commands into the app without breaking any existing code.
 
 
 ##### Output
@@ -828,19 +839,19 @@ The client code (GUI elements, command history, etc.) isn’t coupled to concret
 #### Iterator
 
 
-Iterator is a behavioral design pattern that allows sequential traversal through a complex data structure without exposing its internal details.
+* Iterator is a behavioral design pattern that allows sequential traversal through a complex data structure without exposing its internal details.
 
-Thanks to the Iterator, clients can go over elements of different collections in a similar fashion using a single iterator interface.
+* Thanks to the Iterator, clients can go over elements of different collections in a similar fashion using a single iterator interface.
 
 ![iterator](images/iterator.png)
 
 ##### Pseudocode
 
-In this example, the Iterator pattern is used to walk through a special kind of collection which encapsulates access to Facebook’s social graph. The collection provides several iterators that can traverse profiles in various ways.
+* In this example, the Iterator pattern is used to walk through a special kind of collection which encapsulates access to Facebook’s social graph. The collection provides several iterators that can traverse profiles in various ways.
 
-The ‘friends’ iterator can be used to go over the friends of a given profile. The ‘colleagues’ iterator does the same, except it omits friends who don’t work at the same company as a target person. Both iterators implement a common interface which allows clients to fetch profiles without diving into implementation details such as authentication and sending REST requests.
+* The ‘friends’ iterator can be used to go over the friends of a given profile. The ‘colleagues’ iterator does the same, except it omits friends who don’t work at the same company as a target person. Both iterators implement a common interface which allows clients to fetch profiles without diving into implementation details such as authentication and sending REST requests.
 
-The client code isn’t coupled to concrete classes because it works with collections and iterators only through interfaces. If you decide to connect your app to a new social network, you simply need to provide new collection and iterator classes without changing the existing code.
+* The client code isn’t coupled to concrete classes because it works with collections and iterators only through interfaces. If you decide to connect your app to a new social network, you simply need to provide new collection and iterator classes without changing the existing code.
 
 ##### Code Example
 
@@ -875,19 +886,19 @@ Sent message to: 'sam@amazon.com'. Message body: 'Hey! This is Anna's boss Jason
 
 #### Mediator
 
-Mediator is a behavioral design pattern that reduces coupling between components of a program by making them communicate indirectly, through a special mediator object.
+* Mediator is a behavioral design pattern that reduces coupling between components of a program by making them communicate indirectly, through a special mediator object.
 
-The Mediator makes it easy to modify, extend and reuse individual components because they’re no longer dependent on the dozens of other classes.
+* The Mediator makes it easy to modify, extend and reuse individual components because they’re no longer dependent on the dozens of other classes.
 
 ![Mediator](images/mediator.png)
 
 ##### Pseudocode
 
-In this example, the Mediator pattern helps you eliminate mutual dependencies between various UI classes: buttons, checkboxes and text labels.
+* In this example, the Mediator pattern helps you eliminate mutual dependencies between various UI classes: buttons, checkboxes and text labels.
 
-An element, triggered by a user, doesn’t communicate with other elements directly, even if it looks like it’s supposed to. Instead, the element only needs to let its mediator know about the event, passing any contextual info along with that notification.
+* An element, triggered by a user, doesn’t communicate with other elements directly, even if it looks like it’s supposed to. Instead, the element only needs to let its mediator know about the event, passing any contextual info along with that notification.
 
-In this example, the whole authentication dialog acts as the mediator. It knows how concrete elements are supposed to collaborate and facilitates their indirect communication. Upon receiving a notification about an event, the dialog decides what element should address the event and redirects the call accordingly.
+* In this example, the whole authentication dialog acts as the mediator. It knows how concrete elements are supposed to collaborate and facilitates their indirect communication. Upon receiving a notification about an event, the dialog decides what element should address the event and redirects the call accordingly.
 
 ##### Code Example
 
@@ -903,19 +914,19 @@ In this example, the whole authentication dialog acts as the mediator. It knows 
 
 #### Memento
 
-Memento is a behavioral design pattern that allows making snapshots of an object’s state and restoring it in future.
+* Memento is a behavioral design pattern that allows making snapshots of an object’s state and restoring it in future.
 
-The Memento doesn’t compromise the internal structure of the object it works with, as well as data kept inside the snapshots.
+* The Memento doesn’t compromise the internal structure of the object it works with, as well as data kept inside the snapshots.
 
 ![memento](images/memento.png)
 
 ##### Pseudocode
 
-This example uses the Memento pattern alongside the Command pattern for storing snapshots of the complex text editor’s state and restoring an earlier state from these snapshots when needed.
+* This example uses the Memento pattern alongside the Command pattern for storing snapshots of the complex text editor’s state and restoring an earlier state from these snapshots when needed.
 
-The command objects act as caretakers. They fetch the editor’s memento before executing operations related to commands. When a user attempts to undo the most recent command, the editor can use the memento stored in that command to revert itself to the previous state.
+* The command objects act as caretakers. They fetch the editor’s memento before executing operations related to commands. When a user attempts to undo the most recent command, the editor can use the memento stored in that command to revert itself to the previous state.
 
-The memento class doesn’t declare any public fields, getters or setters. Therefore no object can alter its contents. Mementos are linked to the editor object that created them. This lets a memento restore the linked editor’s state by passing the data via setters on the editor object. Since mementos are linked to specific editor objects, you can make your app support several independent editor windows with a centralized undo stack.
+* The memento class doesn’t declare any public fields, getters or setters. Therefore no object can alter its contents. Mementos are linked to the editor object that created them. This lets a memento restore the linked editor’s state by passing the data via setters on the editor object. Since mementos are linked to specific editor objects, you can make your app support several independent editor windows with a centralized undo stack.
 
 ##### Code Example
 
@@ -931,21 +942,21 @@ The memento class doesn’t declare any public fields, getters or setters. There
 
 #### Observer
 
-Observer is a behavioral design pattern that allows some objects to notify other objects about changes in their state.
+* Observer is a behavioral design pattern that allows some objects to notify other objects about changes in their state.
 
-The Observer pattern provides a way to subscribe and unsubscribe to and from these events for any object that implements a subscriber interface.
+* The Observer pattern provides a way to subscribe and unsubscribe to and from these events for any object that implements a subscriber interface.
 
 ![observer](images/Observer.png)
 
 ##### Pseudocode
 
-In this example, the Observer pattern lets the text editor object notify other service objects about changes in its state.
+* In this example, the Observer pattern lets the text editor object notify other service objects about changes in its state.
 
-The list of subscribers is compiled dynamically: objects can start or stop listening to notifications at runtime, depending on the desired behavior of your app.
+* The list of subscribers is compiled dynamically: objects can start or stop listening to notifications at runtime, depending on the desired behavior of your app.
 
-In this implementation, the editor class doesn’t maintain the subscription list by itself. It delegates this job to the special helper object devoted to just that. You could upgrade that object to serve as a centralized event dispatcher, letting any object act as a publisher.
+* In this implementation, the editor class doesn’t maintain the subscription list by itself. It delegates this job to the special helper object devoted to just that. You could upgrade that object to serve as a centralized event dispatcher, letting any object act as a publisher.
 
-Adding new subscribers to the program doesn’t require changes to existing publisher classes, as long as they work with all subscribers through the same interface.
+* Adding new subscribers to the program doesn’t require changes to existing publisher classes, as long as they work with all subscribers through the same interface.
 
 
 ##### Code Example
@@ -965,17 +976,17 @@ Email to admin@example.com: Someone has performed save operation with the follow
 
 #### State
 
-State is a behavioral design pattern that allows an object to change the behavior when its internal state changes.
+* State is a behavioral design pattern that allows an object to change the behavior when its internal state changes.
 
-The pattern extracts state-related behaviors into separate state classes and forces the original object to delegate the work to an instance of these classes, instead of acting on its own.
+* The pattern extracts state-related behaviors into separate state classes and forces the original object to delegate the work to an instance of these classes, instead of acting on its own.
 
 ![State](images/State.png)
 
 ##### Pseudocode
 
-In this example, the State pattern lets the same controls of the media player behave differently, depending on the current playback state.
+* In this example, the State pattern lets the same controls of the media player behave differently, depending on the current playback state.
 
-The main object of the player is always linked to a state object that performs most of the work for the player. Some actions replace the current state object of the player with another, which changes the way the player reacts to user interactions.
+* The main object of the player is always linked to a state object that performs most of the work for the player. Some actions replace the current state object of the player with another, which changes the way the player reacts to user interactions.
 
 ##### Code Example
 
@@ -991,9 +1002,9 @@ The main object of the player is always linked to a state object that performs m
 
 #### Strategy
 
-Strategy is a behavioral design pattern that turns a set of behaviors into objects and makes them interchangeable inside original context object.
+* Strategy is a behavioral design pattern that turns a set of behaviors into objects and makes them interchangeable inside original context object.
 
-The original object, called context, holds a reference to a strategy object. The context delegates executing the behavior to the linked strategy object. In order to change the way the context performs its work, other objects may replace the currently linked strategy object with another one.
+* The original object, called context, holds a reference to a strategy object. The context delegates executing the behavior to the linked strategy object. In order to change the way the context performs its work, other objects may replace the currently linked strategy object with another one.
 
 ![strategy](images/strategy.png)
 
@@ -1011,16 +1022,18 @@ The original object, called context, holds a reference to a strategy object. The
 
 #### Template Method
 
-Template Method is a behavioral design pattern that allows you to defines a skeleton of an algorithm in a base class and let subclasses override the steps without changing the overall algorithm’s structure.
+* Template Method is a behavioral design pattern that allows you to defines a skeleton of an algorithm in a base class and let subclasses override the steps without changing the overall algorithm’s structure.
 
 ![template](images/template.png)
 
 ##### Pseudocode
 
-In this example, the Template Method pattern provides a “skeleton” for various branches of artificial intelligence in a simple strategy video game.
+* In this example, the Template Method pattern provides a “skeleton” for various branches of artificial intelligence in a simple strategy video game.
 
 
-All races in the game have almost the same types of units and buildings. Therefore you can reuse the same AI structure for various races, while being able to override some of the details. With this approach, you can override the orcs’ AI to make it more aggressive, make humans more defense-oriented, and make monsters unable to build anything. Adding a new race to the game would require creating a new AI subclass and overriding the default methods declared in the base AI class.
+* All races in the game have almost the same types of units and buildings. Therefore you can reuse the same AI structure for various races, while being able to override some of the details. With this approach, you can override the orcs’ AI to make it more aggressive, make humans more defense-oriented, and make monsters unable to build anything.
+
+* Adding a new race to the game would require creating a new AI subclass and overriding the default methods declared in the base AI class.
 
 ![template](images/template-struc.png)
 
@@ -1038,7 +1051,7 @@ All races in the game have almost the same types of units and buildings. Therefo
 
 #### Visitor
 
-Visitor is a behavioral design pattern that allows adding new behaviors to existing class hierarchy without altering any existing code.
+* Visitor is a behavioral design pattern that allows adding new behaviors to existing class hierarchy without altering any existing code.
 
 ![cisitor](images/visitor.png)
 
