@@ -1172,8 +1172,7 @@ The Model View Controller (MVC) design pattern specifies that an application con
 * Knowledge on multiple technologies becomes the norm. Developers using MVC need to be skilled in multiple technologies.
 
 
-
-### Commit ids
+### github commits id
 
 * [Factory Pattern](#factory-method) - cc519bcffb06e89299973277f44292dd0fc8f49e
 
@@ -1218,3 +1217,32 @@ The Model View Controller (MVC) design pattern specifies that an application con
 * [visitor](#visitor)- 444b3446d4ae7f89ee617f093ee150aa126caa4c
 
 * [MVC](#mvc) - 250be2c61af19d41590c1c304c1172c9118f7188
+
+### Steps to get github commit
+
+{{1-7}}
+> **Step 1** : Copy the http code from github
+>![github](images/github-http.png)
+
+{{2-7}}
+> **Step 2** : clone the project into a folder
+>![github](images/git-clone.png)
+
+{{3-7}}
+> **Step 3** : change the directive 
+>![github](images/git-cd.png)
+
+
+{{4-7}}
+> **Step 4** : "git fetch origin (commit id)" type the git command to fetch the particular commit id 
+>![github](images/git-fetch.png)
+
+
+{{5-7}}
+> **Step 5** : "git checkout FETCH_HEAD" type the git command to fetch the particular commit id 
+>![github](images/git-fetch-head.png)
+
+{{6-7}}
+> **Step 6** : "git checkout main" to retrive back to the main branch
+>![github](images/git-main.png)
+
